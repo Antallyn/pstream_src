@@ -1,8 +1,6 @@
 # Pstream Src
 
 PstreamSrc is a very basic gem to take the master HLS file out of a pstream.net jwplayer video using the famous [Nokogiri](https://github.com/sparklemotion/nokogiri) gem.
-However, the link being generated is unique to your ip address and will expires after 10 minutes, if you try getting the file anyway you'll just get a 404 error. The links in the master file will not expire after the same amount of time so don't worry.
-Do not forget to add the appropriate http headers to your request if you don't want to receive a 404 error.
 
 ## Installation
 
@@ -20,8 +18,13 @@ This gem is very simple to use, you just need the pstream video id, it can be fo
  Ex:``https://www.pstream.net/e/PvpVL4rvlarq26W -> PvpVL4rvlarq26W``
 
 	require "pstream_src"
+	
 	pstream = PstreamSrc::JWPlayer.new("PvpVL4rvlarq26W")
-	pstream.master #=> https://www.pstream.net/m/eyJpdiI6IjBkQ0ZKQjF6dE44aEI3V2Jib0lMcVE9PSIsInZhbHV ...
+	
+	pstream.master #=> https://www.pstream.net/m/eyJpdiI6IjBkQ0ZKQjF6dE44aEI3V2Jib0lMcVE9PSIsInZhbHV...
+
+The link being generated is unique to your ip address and will expires after 10 minutes, if you try getting the file anyway you'll just get a 404 error. The links in the master file will not expire after the same amount of time so don't worry.
+Do not forget to add the appropriate http headers to your request if you don't want to receive a 404 error.
 
 ## Contributing
 
