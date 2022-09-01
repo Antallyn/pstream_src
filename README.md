@@ -14,7 +14,7 @@ Then, install the gem by executing:
 
 ## Usage
 
-This gem is very simple to use, you just need the pstream video id, it can be found at the end of the video link,
+This gem is very easy to use, you just need the pstream video id, it can be found at the end of the video link,
  Ex:``https://www.pstream.net/e/PvpVL4rvlarq26W -> PvpVL4rvlarq26W``
 
 	require "pstream_src"
