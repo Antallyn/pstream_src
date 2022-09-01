@@ -1,32 +1,31 @@
-# PstreamSrc
+# Pstream Src
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pstream_src`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+PstreamSrc is a very basic gem to take the master HLS file out of a pstream.net jwplayer video using the famous [Nokogiri](https://github.com/sparklemotion/nokogiri) gem.
+However, the link being generated is unique to your ip address and will expires after 10 minutes, if you try getting the file anyway you'll just get a 404 error. The links in the master file will not expire after the same amount of time so don't worry.
+Do not forget to add the appropriate http headers to your request if you don't want to receive a 404 error.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Clone this repo, and build the gem:
 
-    $ bundle add pstream_src
+    $ gem build pstream_src.gemspec -o pstream_src.gem
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Then, install the gem by executing:
 
-    $ gem install pstream_src
+    $ gem install ./pstream_src.gem
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem is very simple to use, you just need the pstream video id, it can be found at the end of the video link,
+ Ex:``https://www.pstream.net/e/PvpVL4rvlarq26W -> PvpVL4rvlarq26W``
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+	require "pstream_src"
+	pstream = PstreamSrc::JWPlayer.new("PvpVL4rvlarq26W")
+	pstream.master #=> https://www.pstream.net/m/eyJpdiI6IjBkQ0ZKQjF6dE44aEI3V2Jib0lMcVE9PSIsInZhbHV ...
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pstream_src.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Antallyn/pstream_src.
 
 ## License
 
